@@ -1,0 +1,75 @@
+
+/* style.css */
+:root {
+    --base-font-size: 16px;
+}
+html {
+    font-size: var(--base-font-size);
+}
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+nav {
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+}
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav li {
+    margin: 0.5rem;
+}
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+nav a:hover {
+    background: #f0f0f0;
+}
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 600px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+th {
+    background: #f8f9fa;
+}
+#font-size-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    #font-size-button {
+        top: 10px;
+        right: 10px;
+        padding: 0.4rem;
+    }
+}

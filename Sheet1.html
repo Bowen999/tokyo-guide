@@ -3,18 +3,12 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sheet1</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    nav ul { list-style: none; padding: 0; margin-bottom: 20px; }
-    nav li { display: inline; margin-right: 15px; }
-    nav a { text-decoration: none; color: #333; font-weight: bold; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background: #f4f4f4; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <button id="font-size-button">A+</button>
   <nav>
 <ul>
 <li><a href="4.30.html">4.30</a></li>
@@ -24,7 +18,8 @@
 </ul>
 </nav>
   <h1>Sheet1</h1>
-  <table border="1" class="dataframe">
+  <div class="table-wrapper">
+    <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>Unnamed: 0</th>
@@ -100,5 +95,23 @@
     </tr>
   </tbody>
 </table>
+  </div>
+  
+<script>
+(function(){
+    const btn = document.getElementById('font-size-button');
+    let normalSize = 16;
+    let largeSize = 20;
+    let activeLarge = false;
+    btn.addEventListener('click', () => {
+        activeLarge = !activeLarge;
+        document.documentElement.style.setProperty(
+            '--base-font-size', (activeLarge ? largeSize : normalSize) + 'px'
+        );
+        btn.textContent = activeLarge ? 'A-' : 'A+';
+    });
+})();
+</script>
+
 </body>
 </html>
