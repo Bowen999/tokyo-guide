@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -49,7 +48,8 @@ maruushi meat ginza、yoshigoroS、篝拉面、山笑shabushabu、今半、ginza
     btn.addEventListener('click', () => {
         activeLarge = !activeLarge;
         document.documentElement.style.setProperty(
-            '--base-font-size', (activeLarge ? largeSize : normalSize) + 'px'
+            '--base-font-size',
+            (activeLarge ? largeSize : normalSize) + 'px'
         );
         btn.textContent = activeLarge ? 'A-' : 'A+';
     });

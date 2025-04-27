@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -132,7 +131,8 @@
     btn.addEventListener('click', () => {
         activeLarge = !activeLarge;
         document.documentElement.style.setProperty(
-            '--base-font-size', (activeLarge ? largeSize : normalSize) + 'px'
+            '--base-font-size',
+            (activeLarge ? largeSize : normalSize) + 'px'
         );
         btn.textContent = activeLarge ? 'A-' : 'A+';
     });
