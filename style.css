@@ -3,9 +3,14 @@
 }
 html {
     font-size: var(--base-font-size);
+    /* Prevent mobile browsers from auto-adjusting text size */
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
 }
 body {
     font-family: Arial, sans-serif;
+    font-size: var(--base-font-size);
     padding: 20px;
     margin: 0;
 }
@@ -14,6 +19,7 @@ body {
 nav {
     background: #fff;
     border-bottom: 1px solid #eaeaea;
+    font-size: var(--base-font-size);
 }
 nav ul {
     display: flex;
@@ -31,6 +37,7 @@ nav a {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: background 0.3s;
+    font-size: var(--base-font-size);
 }
 nav a:hover {
     background: #f0f0f0;
@@ -42,6 +49,7 @@ nav a:hover {
     margin-top: 20px;
     border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: var(--base-font-size);
 }
 
 /* THE TABLE */
@@ -51,6 +59,7 @@ table {
     border-spacing: 0;
     /* Ensure table can expand beyond viewport if content is wide */
     width: max-content;
+    font-size: var(--base-font-size);
 }
 
 /* HEADER */
@@ -62,6 +71,7 @@ thead th {
     font-weight: 500;
     padding: 1rem;
     text-align: left;
+    font-size: var(--base-font-size);
 }
 
 /* BODY CELLS: allow multiline, auto-height */
@@ -73,6 +83,7 @@ tbody td {
     max-height: none;
     overflow: visible;
     text-overflow: clip;
+    font-size: var(--base-font-size);
 }
 
 /* STRIPED ROWS */
@@ -96,6 +107,7 @@ th, td {
     padding: 0.5rem;
     border-radius: 4px;
     cursor: pointer;
+    font-size: var(--base-font-size);
 }
 
 /* Small screens: keep table wide, allow horizontal scroll */

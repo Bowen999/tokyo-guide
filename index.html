@@ -18,7 +18,7 @@
 <li><a href="5.5.html">5.5</a></li>
 </ul>
 </nav>
-  <h1>Day1 东京塔</h1>
+  <h1 style="font-size: var(--base-font-size)">Day1 东京塔</h1>
   <div class="table-wrapper">
     <table border="1" class="dataframe">
   <thead>
@@ -81,17 +81,13 @@
     const sizes = [12, 14, 16, 18, 20];  // pixel sizes for A--, A-, A, A+, A++
     const labels = ['A--', 'A-', 'A', 'A+', 'A++'];
     let index = 2; // start at 'A' (16px)
-    // Initialize button label
     btn.textContent = labels[index];
     btn.addEventListener('click', () => {
-        // Move to next size, wrap around
         index = (index + 1) % sizes.length;
-        // Update CSS variable
         document.documentElement.style.setProperty(
             '--base-font-size',
             sizes[index] + 'px'
         );
-        // Update button text
         btn.textContent = labels[index];
     });
 })();
