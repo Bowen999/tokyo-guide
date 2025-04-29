@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="font-size-button">A+</button>
+  <button id="font-size-button">A</button>
   <nav>
 <ul>
 <li><a href="4.30.html">4.30</a></li>
@@ -36,38 +36,41 @@
       <th></th>
       <td>早餐</td>
       <td>8:00-9:00</td>
-      <td>nan</td>
-      <td>nan</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>酒店用餐</td>
     </tr>
     <tr>
       <th></th>
       <td>酒店--成田T1</td>
-      <td>约11:20（需9点半前退房出<br>门，坐10点机场特快线）</td>
+      <td>约11:20（需9点半前退房出门，坐10点机场特快线）</td>
       <td>JP¥1,466</td>
-      <td>浅草线 1h10min --押<br>上（无需换乘）--成田T1</td>
-      <td>手机值机，机场托运。饭在安检前<br>吃，东西在安检后买</td>
+      <td>浅草线 1h10min --押上（无需换乘）--成田T1</td>
+      <td>手机值机，机场托运。饭在安检前吃，东西在安检后买</td>
     </tr>
   </tbody>
 </table>
   </div>
-  
-<script>
+  <script>
 (function(){
     const btn = document.getElementById('font-size-button');
-    let normalSize = 16;
-    let largeSize = 20;
-    let activeLarge = false;
+    const sizes = [12, 14, 16, 18, 20];  // pixel sizes for A--, A-, A, A+, A++
+    const labels = ['A--', 'A-', 'A', 'A+', 'A++'];
+    let index = 2; // start at 'A' (16px)
+    // Initialize button label
+    btn.textContent = labels[index];
     btn.addEventListener('click', () => {
-        activeLarge = !activeLarge;
+        // Move to next size, wrap around
+        index = (index + 1) % sizes.length;
+        // Update CSS variable
         document.documentElement.style.setProperty(
             '--base-font-size',
-            (activeLarge ? largeSize : normalSize) + 'px'
+            sizes[index] + 'px'
         );
-        btn.textContent = activeLarge ? 'A-' : 'A+';
+        // Update button text
+        btn.textContent = labels[index];
     });
 })();
 </script>
-
 </body>
 </html>

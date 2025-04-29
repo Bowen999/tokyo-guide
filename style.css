@@ -46,10 +46,11 @@ nav a:hover {
 
 /* THE TABLE */
 table {
-    width: auto;
+    background: #fff;
     border-collapse: separate;
     border-spacing: 0;
-    background: #fff;
+    /* Ensure table can expand beyond viewport if content is wide */
+    width: max-content;
 }
 
 /* HEADER */
@@ -97,6 +98,7 @@ th, td {
     cursor: pointer;
 }
 
+/* Small screens: keep table wide, allow horizontal scroll */
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -105,5 +107,9 @@ th, td {
         top: 10px;
         right: 10px;
         padding: 0.4rem;
+    }
+    /* Optionally set a minimum width larger than viewport */
+    table {
+        min-width: 800px;
     }
 }

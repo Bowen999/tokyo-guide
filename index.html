@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="font-size-button">A+</button>
+  <button id="font-size-button">A</button>
   <nav>
 <ul>
 <li><a href="4.30.html">4.30</a></li>
@@ -36,62 +36,65 @@
       <th></th>
       <td>抵达成田机场</td>
       <td>约15:00</td>
-      <td>nan</td>
-      <td>下飞机绑定苹果钱包西瓜卡；T3<br>先坐机场接驳车到T1；T1负一楼C台JR售票处购买实体卡或者直接购票</td>
-      <td>nan</td>
+      <td>NaN</td>
+      <td>下飞机绑定苹果钱包西瓜卡；T3先坐机场接驳车到T1；T1负一楼C台JR售票处购买实体卡或者直接购票</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th></th>
       <td>成田T1--酒店</td>
       <td>约17:30</td>
       <td>JP¥1,466</td>
-      <td>京成成田SKYACCESS 1<br>h10min --押上（无需换乘）--三田A4出站口</td>
-      <td>skyaccess每40min<br>一班，出境后坐扶梯到B1轨道交通换乘，_沿着铁道方向走，沿着蓝色圈圈【KS】走（如无西瓜卡，在此处买票），_看到蓝色标志牌【京成线 成田机场】再往前走到橙色【access特快】，_刷西瓜卡进站。</td>
+      <td>京成成田SKYACCESS 1h10min --押上（无需换乘）--三田A4出站口</td>
+      <td>skyaccess每40min一班，出境后坐扶梯到B1轨道交通换乘，<br>沿着铁道方向走，沿着蓝色圈圈【KS】走（如无西瓜卡，在此处买票），<br>看到蓝色标志牌【京成线 成田机场】再往前走到橙色【access特快】，<br>刷西瓜卡进站。</td>
     </tr>
     <tr>
       <th></th>
       <td>晚餐</td>
       <td>18:30-20:00</td>
-      <td>nan</td>
+      <td>NaN</td>
       <td>酒店至餐厅均步行可达</td>
-      <td>肉酒場 ケナシバ ，羊肉料理，<br>tabelog 3.42分，人均JP¥4,000~¥4,999；_古民家の宴，鸡肉料理，tabelog 3.37分，人均JP¥3,000~¥3,999；_馬並み家 三田本店，马肉料理，tabelog 3.40分，人均JP¥4,000~¥4,999</td>
+      <td>肉酒場 ケナシバ ，羊肉料理，tabelog 3.42分，人均JP¥4,000~¥4,999；<br>古民家の宴，鸡肉料理，tabelog 3.37分，人均JP¥3,000~¥3,999；<br>馬並み家 三田本店，马肉料理，tabelog 3.40分，人均JP¥4,000~¥4,999</td>
     </tr>
     <tr>
       <th></th>
       <td>东京塔</td>
       <td>20:00-21:30</td>
-      <td>nan</td>
+      <td>NaN</td>
       <td>步行</td>
-      <td>打卡点：_1:北海道ワイン㈱ <br>東京営業所_2:赤羽桥站 E21出口，出来就能看到东京塔过对面马路能拍到路牌和东京塔_3:赤羽桥站牌过马路，可以直面东京塔。_4:王子芝公園公园长椅，3拍完右手边就是_5:東京 芝 豆腐屋UKAI_6:東京 芝 豆腐屋UKAI右手边公路</td>
+      <td>打卡点：<br>1:北海道ワイン㈱ 東京営業所<br>2:赤羽桥站 E21出口，出来就能看到东京塔过对面马路能拍到路牌和东京塔<br>3:赤羽桥站牌过马路，可以直面东京塔。<br>4:王子芝公園公园长椅，3拍完右手边就是<br>5:東京 芝 豆腐屋UKAI<br>6:東京 芝 豆腐屋UKAI右手边公路</td>
     </tr>
     <tr>
       <th></th>
       <td>购物</td>
-      <td>汇率优势排列：微信、支付宝、银<br>行卡，其中微信最低，小程序搜索“微信支付全球有礼”刷满6笔后都是最优汇率，可先在超市刷6笔，6天内有效。</td>
-      <td>nan</td>
-      <td>nan</td>
-      <td>nan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>汇率优势排列：微信、支付宝、银行卡，其中微信最低，<br>小程序搜索“微信支付全球有礼”刷满6笔后都是最优汇率，<br>可先在超市刷6笔，6天内有效。</td>
     </tr>
   </tbody>
 </table>
   </div>
-  
-<script>
+  <script>
 (function(){
     const btn = document.getElementById('font-size-button');
-    let normalSize = 16;
-    let largeSize = 20;
-    let activeLarge = false;
+    const sizes = [12, 14, 16, 18, 20];  // pixel sizes for A--, A-, A, A+, A++
+    const labels = ['A--', 'A-', 'A', 'A+', 'A++'];
+    let index = 2; // start at 'A' (16px)
+    // Initialize button label
+    btn.textContent = labels[index];
     btn.addEventListener('click', () => {
-        activeLarge = !activeLarge;
+        // Move to next size, wrap around
+        index = (index + 1) % sizes.length;
+        // Update CSS variable
         document.documentElement.style.setProperty(
             '--base-font-size',
-            (activeLarge ? largeSize : normalSize) + 'px'
+            sizes[index] + 'px'
         );
-        btn.textContent = activeLarge ? 'A-' : 'A+';
+        // Update button text
+        btn.textContent = labels[index];
     });
 })();
 </script>
-
 </body>
 </html>
