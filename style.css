@@ -64,21 +64,26 @@ thead th {
     text-align: left;
 }
 
-/* BODY ROWS */
-/* 固定行高 */
+/* BODY ROWS：行高自适应以容纳两行文本 */
 tbody tr {
-    height: 6rem;
+    height: auto;
 }
 
-/* BODY CELLS */
-/* 隐藏超出并显示省略号 */
+/* BODY CELLS：最多两行，超出用省略号 */
 tbody td {
     padding: 0.75rem 1rem;
     color: #6b7280;
-    max-height: 3rem;
+
+    /* 关键：开启多行截断 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+
+    /* 允许换行，按单词断行 */
+    white-space: normal;
+    word-break: break-word;
 }
 
 /* STRIPED ROWS */
