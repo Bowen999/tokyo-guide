@@ -45,7 +45,6 @@ nav a:hover {
 }
 
 /* THE TABLE */
-/* 宽度不受限，超出时出现横向滚动 */
 table {
     width: auto;
     border-collapse: separate;
@@ -64,26 +63,15 @@ thead th {
     text-align: left;
 }
 
-/* BODY ROWS：行高自适应以容纳两行文本 */
-tbody tr {
-    height: auto;
-}
-
-/* BODY CELLS：最多两行，超出用省略号 */
+/* BODY CELLS: allow multiline, auto-height */
 tbody td {
     padding: 0.75rem 1rem;
     color: #6b7280;
-
-    /* 关键：开启多行截断 */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    /* 允许换行，按单词断行 */
-    white-space: normal;
-    word-break: break-word;
+    white-space: pre-wrap;      /* Preserve whitespace and wrap */
+    word-wrap: break-word;      /* Break long words */
+    max-height: none;
+    overflow: visible;
+    text-overflow: clip;
 }
 
 /* STRIPED ROWS */
